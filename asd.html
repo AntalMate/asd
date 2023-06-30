@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <title>Kódgenerátor</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+        
+      </head>
+<body>
+    <div id="header-image">
+        <img src="img/badge_packer1.png" alt="Itt egy Packer van." width="350" height="350">
+      </div>
+  <div class="container">
+    <div class="input-column">
+      <h1>Kódgenerátor</h1>
+      <label for="rendszam">Rendszám:</label>
+      <input type="text" id="rendszam"><br><br>
+
+      <label for="jaroid">Jármű azonosító:</label>
+      <input type="number" id="jaroid"><br><br>
+
+      <label for="utca">Utca:</label>
+      <input type="text" id="utca"><br><br>
+
+      <label for="varos">Város:</label>
+      <input type="text" id="varos"><br><br>
+
+      <label for="linkHelye">Link helye:</label>
+      <input type="text" id="linkHelye"><br><br>
+
+      <label for="valasz">Szabálytalanság meghatározása:</label>
+      <input type="text" id="valasz"><br><br>
+
+      <label for="valasz2">Egyéb megjegyzés:</label>
+      <input type="text" id="valasz2"><br><br>
+
+      <button onclick="helyettesito()">Generálás</button>
+    </div>
+
+    <div class="result-column">
+      <h2>Generált kód:</h2>
+      <pre id="kod"></pre>
+      <button id="kimasolas"> <img src="img/masol.png" alt="Itt egy gomb." width="16px" height="16px"></button>
+    </div>
+  </div>
+
+ 
+</body>
+<script>function helyettesito() {
+    var rendszam = document.getElementById("rendszam").value;
+    var jaroid = document.getElementById("jaroid").value;
+    var utca = document.getElementById("utca").value;
+    var varos = document.getElementById("varos").value;
+    var linkHelye = document.getElementById("linkHelye").value;
+    var valasz = "[ICODE]" + document.getElementById("valasz").value + "[/ICODE]";
+    var valasz2 = "[ICODE]" + document.getElementById("valasz2").value + "[/ICODE]";
+  
+    var szoveg = `
+    A jármű rendszáma: [ICODE]${rendszam}[/ICODE]
+    A jármű alvázszáma: [ICODE]${jaroid}[/ICODE]
+    Helyszín: [ICODE]${utca}, ${varos}[/ICODE]
+    Lefoglalásra került: [ICODE]igen[/ICODE]
+    Helyszínen ki lett állítva a bírság: [ICODE]nem[/ICODE]
+  
+    Csatolt bizonyíték: [B][URL='${linkHelye}']kép[/URL][/B]
+    Szabálytalanság meghatározása: ${valasz}
+    Egyéb megjegyzés: ${valasz2}`;
+  
+    document.getElementById("kod").innerHTML = szoveg;
+  }</script>
+</html>

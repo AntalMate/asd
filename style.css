@@ -1,0 +1,111 @@
+.container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .input-column {
+    width: 50%;
+    padding: 20px;
+  }
+  
+  .result-column {
+    width: 50%;
+    padding: 20px;
+  }
+  
+  body {
+    background-color: #ccc;
+    font-family: "Ubuntu", sans-serif;
+    margin: 0;
+  }
+  
+  h1, h2, label {
+    text-align: center;
+  }
+  
+  button {
+    margin-top: 10px;
+  }
+  
+  #kod {
+    text-align: left;
+    white-space: pre-wrap;
+  }
+  
+  #header-image {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  #header-image img {
+    width: 200px;
+    height: 200px;
+  }
+
+  label,button {
+    display: inline-block;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 5px;
+    width: fit-content;
+  }
+
+  
+  /* Az Ăśsszes input elemen legyen beĂ­rva az adat ĂŠs tĹąnjĂśn el a beviteli mezĹbe tĂśrtĂŠnĹ kattintĂĄskor */
+  input[type="text"], input[type="number"] {
+    display: inline-block;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-image: linear-gradient(to right, #f2f2f2, #f2f2f2);
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    width: 50%; /* MĂłdosĂ­tĂĄs: Az input mezĹ szĂŠlessĂŠge 50% */
+  }
+  
+  input[type="text"]::placeholder, input[type="number"]::placeholder {
+    color: #888;
+  }
+  
+  input[type="text"]:focus, input[type="number"]:focus {
+    background-image: none;
+  }
+
+  @media only screen and (min-width: 600px) {
+    /* Desktop layout */
+    .container {
+      flex-direction: row;
+    }
+  
+    .input-column {
+      width: 50%;
+    }
+  
+    .result-column {
+      width: 50%;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    /* Mobile layout */
+    .container {
+      flex-direction: column;
+    }
+  
+    .input-column,
+    .result-column {
+      width: 100%;
+    }
+  
+    input[type="text"],
+    input[type="number"],
+    textarea {
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
